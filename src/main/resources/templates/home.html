@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--static 폴더에 있는  웰컴파일 index.html이 시작 페이지이지만
+    스프링 컨테이너에 등록되어 있는 스프링 빈에 매핑된 값이 있으면 이를 웰컴 페이지보다 우선적으로 찾아간다.
+-->
+<div class="container">
+  <div>
+    <h1>Hello Spring</h1>
+    <p>회원기능</p>
+    <p>
+      <a href="/members/new">회원가입</a>
+      <a href="/members">회원목록</a>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

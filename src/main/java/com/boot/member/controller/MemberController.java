@@ -1,5 +1,6 @@
 package com.boot.member.controller;
 
+import com.boot.member.domain.Member;
 import com.boot.member.service.MemberService;
 
 @Controller
@@ -11,6 +12,31 @@ public class MemberController {
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+    }
+
+    //URL에 직접 path를 입력하는 GET방식으 통신의 경우 매핑되는 메서드
+    @GetMapping("/members/new")
+    public String createForm(){
+        return "members/createMemberForm";
+    }
+
+    //데이터를 form에 넣어서 전달할때 POST를 사용한다. 조회 혹은 URL에 직접 입력할 때는 GET을 사용한다.
+    //전송 방법에 따라 다르게 매핑할 수 있다.
+    @PostMapping("/members/new")
+    public String create(MemberForm form){
+        Member member = new Member();
+        member.setName(form.getName());
+
+        memberService.join(member);
+        return "redirect:/";
+    }
+
+    @GetMapping("/members")
+    public String list(Model model){
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+
+        return "members/memberList";
     }
 }
 //컨트롤러는 컨포넌트 스캔을 사용할 수 밖에 없다. 그러므로 autowired또한 사용해야 한다.
