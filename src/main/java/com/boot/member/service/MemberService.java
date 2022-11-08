@@ -13,11 +13,9 @@ import java.util.Optional;
 //서비스가 컨트롤러를 의존하도록 의존관계를 설정해야 한다.
 
 //ctrl + shift + t : 새로운 테스트케이스 작성하기
-@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
