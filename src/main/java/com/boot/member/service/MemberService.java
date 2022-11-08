@@ -7,10 +7,17 @@ import com.boot.member.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+//2022-11-08
+//서비스를 통해서 멤버를 가입하고, 가입한 멤버를 리포지토리에 저장하고 꺼내올 수 있음
+//컨트롤러를 만들 생각이다.
+//서비스가 컨트롤러를 의존하도록 의존관계를 설정해야 한다.
+
 //ctrl + shift + t : 새로운 테스트케이스 작성하기
+@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
