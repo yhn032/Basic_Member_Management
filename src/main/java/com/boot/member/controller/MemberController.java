@@ -18,7 +18,9 @@ public class MemberController {
     //스프링 컨테이너에 있는 멤버 서비스를 스프링이 가져와서 자동으로 주입해주는 어노테이션
     @Autowired
     public MemberController(MemberService memberService) {
+
         this.memberService = memberService;
+        System.out.println(memberService.getClass());
     }
 
     //URL에 직접 path를 입력하는 GET방식으 통신의 경우 매핑되는 메서드
